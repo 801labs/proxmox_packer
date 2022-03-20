@@ -20,7 +20,7 @@
      "node": "{{user `node`}}",
      "ssh_username": "root",
      "boot_command": [
-        "echo \"we did it\""
+        ""
      ],
 
      "iso_storage_pool": "{{user `iso_storage_pool`}}",
