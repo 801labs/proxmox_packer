@@ -1,30 +1,32 @@
 {
   "variables": {
-    "username": username,
-    "password": password,
-    "node": node,
-    "iso_file": iso_file,
-    "proxmox_url": proxmox_url
-  }
+    "username": "",
+    "password": "",
+    "node": "",
+    "iso_file": "",
+    "iso_storage_pool": "",
+    "iso_checksum": "",
+    "skip_tls": "",
+    "proxmox_url": ""
+  },
   "builders": [
+    {
      "type": "proxmox",
-     "proxmox_url": "https://192.168.1.13:8006/api2/json",
-     "insecure_skip_tls_verify": true,
+     "proxmox_url": "{{user `proxmox_url`}}",
+     "insecure_skip_tls_verify": "{{user `skip_tls`}}",
      "username": "{{user `username`}}",
-     "password": "{{password `password`}}",
+     "password": "{{user `password`}}",
  
-     "node": "{{node `node`}}",
+     "node": "{{user `node`}}",
+     "ssh_username": "root",
      "boot_command": [
         "echo \"we did it\""
      ],
 
-     "network_adapters": [
-        {
-           "ethernet": "eno2"
-        }
-     ], 
-     "iso_file": "{{isofile `isofile`}}",
+     "iso_storage_pool": "{{user `iso_storage_pool`}}",
+     "iso_checksum": "{{user `iso_checksum`}}",
+     "iso_url": "{{user `iso_url`}}",
      "unmount_iso": true
-     
+    } 
   ]
 }
