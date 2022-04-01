@@ -3,7 +3,7 @@
     "username": "",
     "password": "",
     "node": "",
-    "iso_file": "",
+    "iso_url": "",
     "iso_storage_pool": "",
     "iso_checksum": "",
     "skip_tls": "",
