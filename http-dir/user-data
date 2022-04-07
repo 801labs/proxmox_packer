@@ -1,0 +1,20 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US.UTF-8
+  keyboard:
+    layout: en
+    variant: us
+  refresh-installer:
+    update: false
+  ssh:
+    install-server: yes
+    allow-pw: yes
+  packages:
+    - qemu-guest-agent
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+

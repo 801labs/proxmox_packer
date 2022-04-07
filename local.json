@@ -1,0 +1,13 @@
+{
+	"username": "root@pam",
+	"password": "7b6Ghd#tKCZ47S*Ei6!",
+	"vm_user": "chad",
+	"vm_pass": "ZTAyWPqixoQFWFZ0WzdMq6VMEg5OoK",
+	"vm_name": "ubuntu-20.04-template",
+	"proxmox_url": "https://192.168.1.23:8006/api2/json",
+	"node": "proxtest1",
+	"iso_url": "https://releases.ubuntu.com/20.04/ubuntu-20.04.4-live-server-amd64.iso",
+	"iso_storage_pool": "local",
+	"iso_checksum": "28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad",
+	"skip_tls": "true"
+}
