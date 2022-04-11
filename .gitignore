@@ -1,7 +1,4 @@
 **/*.swp
-*/local.vars
-**/local.vars
-local.vars
-**/local.json
-*/local.json
-local.json
+*/local.auto.pkrvars.hcl
+**/local.auto.pkrvars.hcl
+local.auto.pkrvars.hcl
