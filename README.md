@@ -1,2 +1,2 @@
 # proxmox_packer
-For creating images. 
+This is to create custom images for the space proxmox

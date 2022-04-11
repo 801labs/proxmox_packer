@@ -1,0 +1,38 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+    variant: us
+  network:
+    network:
+      version: 2
+      ethernets:
+        ens18:
+          dhcp4: false
+          addresses: 
+            - 192.168.1.254/24
+          gateway4: 192.168.1.1
+          nameservers: 
+            addresses:
+              - 192.168.1.1
+              - 8.8.8.8
+  early-commands:
+    - systemctl stop ssh
+  identity:
+    hostname: ubuntu-template
+    username: chad
+    password: $6$rounds=4096$DsetORxe$vwytg1lkC229xjarxKHkdRv8EBFxIF6g2m0fGqIPZnVKAS4XV9WaiZnu5jITeG7o5FyXSvF8LkYTPtzBVhlmE1 
+  user-data:
+    diable_root: false
+  ssh:
+    install-server: yes
+    allow-pw: yes
+    authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyW+c/mSKUdxGGr8kZZXtrt3EUuuDw4Yf//1KcrivK7PkyoNx5dAGdohlMmW/+UgrMjMIvaUbbp/geAnMOgae5mbXQP0DdL0kileIT0M352aW0awNp456+UjdVm6aTX64vf/mw9F99F6GaM6Pnnqe+tZUVGr2JirsUD9AzQLPUpIvSVqzZ5O5caU8rooBiQ0J0xyEpd4LcxesXdOO2lyS3GAkcWCwLfVDbQDuNJC4CBRCf8Z9FfkjblxDyGJrM1F9drTkTUddQe0gXvg7swTtNIbv4t2mI1ZC7VIQyYgkw5EchD3Fk4+HNERRT4Dt9yIL3wdQ6wVtLyL90/XVW4tyTvo4VouvhsVjHjaJUqUR5hf3REsmWEE0LlVSYz5e6W76VNLA3NV0bBKO4EnCp1XduN6p96iVhhBCLXBnAKwWdHkuFJIFzbe+Ej9EsAQ5OiTQRUlaznAZ6ez2VNk5MFLFCTiak1GI481eV1MzJ6Hl/urJtliuqbi3cJxbchX1W0uhsbhO0KAN6XlkM5G6f1osa0VaiJZzqyUZDJxvdN3WkSRTE5CyOX6CHOGF6tbBKkHC/tGxOcCLgF7zkBpsaJ2vyuSlINtpVfpVeTmKJednXISF099KGnWOUAKPYaxDG/DOXbntlItqDoQGOy08xnP8hzS/9Ak8Z04I/qt8hux3LgQ== chad@chadwayment-laptop
+  storage:
+    layout:
+      name: lvm 
+  late-commands:
+    - echo 'ubuntu ALL=(ALL) ALL' > /target/etc/sudoers.d/chad
