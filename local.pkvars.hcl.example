@@ -1,0 +1,9 @@
+username    = "<proxmox_user@auth_method>"
+password    = "<proxmox_pass>"
+vm_user     = "<golden_image_user>"
+vm_pass     = "<golden_image_pass>"
+vm_ip       = "<vm_ip>"
+vm_name     = "<template_name>"
+proxmox_url = "https://<hostnameorip>:8006/api2/json"
+node        = "<node_name>"
+skip_tls    = true
