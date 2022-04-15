@@ -12,18 +12,18 @@ autoinstall:
         ens18:
           dhcp4: false
           addresses: 
-            - 192.168.40.254/24
-          gateway4: 192.168.40.1
+            - 192.168.1.254/24
+          gateway4: 192.168.1.1
           nameservers: 
             addresses:
-              - 192.168.40.1
+              - 192.168.1.1
               - 8.8.8.8
   early-commands:
     - systemctl stop ssh
   identity:
     hostname: ubuntu-template
-    username: ubuntu
-    password: $6$rounds=4096$axyKxTpME$zcfpiIFyi.6wiyOYz5nP8x3dsAo3fUEPiQzDzCFs3J5lvMt2qjKLxuLuoVcK/Y5xAWjfrfYpyQiY6zGA8duNr0
+    username: chad
+    password: $6$rounds=4096$DsetORxe$vwytg1lkC229xjarxKHkdRv8EBFxIF6g2m0fGqIPZnVKAS4XV9WaiZnu5jITeG7o5FyXSvF8LkYTPtzBVhlmE1 
   user-data:
     diable_root: false
   ssh:

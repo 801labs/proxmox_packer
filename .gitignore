@@ -1,4 +1,4 @@
 **/*.swp
 */local.auto.pkrvars.hcl
 **/local.auto.pkrvars.hcl
-local.auto.pkrvars.hcl
+local.*
