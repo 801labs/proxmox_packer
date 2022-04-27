@@ -12,18 +12,18 @@ autoinstall:
         ens18:
           dhcp4: false
           addresses: 
-            - 192.168.1.254/24
-          gateway4: 192.168.1.1
+            - 192.168.40.254/24
+          gateway4: 192.168.40.1
           nameservers: 
             addresses:
-              - 192.168.1.1
+              - 192.168.40.1
               - 8.8.8.8
   early-commands:
     - systemctl stop ssh
   identity:
     hostname: ubuntu-template
     username: ubuntu
-    password: $6$rounds=4096$UZg7gLl.khHrqhs$zvXd/EDOGVn/lumX/FSwzR6wGRsEdIVUBCaBVzrwLhGJ8q8S3Ym3ycGnvLe9BZslegnMhL39fJUx1vFCwHZyT/
+    password: $6$rounds=4096$axyKxTpME$zcfpiIFyi.6wiyOYz5nP8x3dsAo3fUEPiQzDzCFs3J5lvMt2qjKLxuLuoVcK/Y5xAWjfrfYpyQiY6zGA8duNr0
   user-data:
     diable_root: false
   ssh:
@@ -34,10 +34,5 @@ autoinstall:
   storage:
     layout:
       name: lvm 
-  packages:
-    - mysql-client
-    - nginx
-    - qemu-guest-agent
-    - libguestfs-tools
   late-commands:
-    - echo 'ubuntu ALL=(ALL) ALL' > /target/etc/sudoers.d/ubuntu
+    - echo 'ubuntu ALL=(ALL) ALL' > /target/etc/sudoers.d/chad
