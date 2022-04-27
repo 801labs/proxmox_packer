@@ -66,7 +66,7 @@ build {
   sources = ["source.proxmox-iso.proxmox_ubuntu_20"]
   provisioner "shell" {
     inline = [
-      "ls /"
+      "cat /etc/sudoers.d/ubuntu"
     ]
   }
 }

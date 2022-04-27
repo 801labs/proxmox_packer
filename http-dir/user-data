@@ -35,8 +35,7 @@ autoinstall:
     layout:
       name: lvm 
   packages:
-    - fail2ban
-    - denyhosts
+    - iptables-persistent
     - psad
     - qemu-guest-agent
     - libguestfs-tools

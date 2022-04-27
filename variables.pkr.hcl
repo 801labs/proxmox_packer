@@ -74,6 +74,10 @@ variable "iso_checksum" {
    default = "28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
 }
 
+variable "subnet_allow" {
+   default = "192.168.40.0/24"
+}
+
 variable "skip_tls" {
    type = bool
    description = "whether to check tls hostname (vuln to mitm)"
