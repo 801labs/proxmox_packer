@@ -35,8 +35,9 @@ autoinstall:
     layout:
       name: lvm 
   packages:
-    - mysql-client
-    - nginx
+    - fail2ban
+    - denyhosts
+    - psad
     - qemu-guest-agent
     - libguestfs-tools
   late-commands:
