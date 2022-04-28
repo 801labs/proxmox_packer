@@ -36,9 +36,7 @@ source "proxmox-iso" "proxmox_ubuntu_20" {
    http_directory = "http-dir"
    http_port_min = "8080"
    http_port_max = "8080"
-   qemu_agent = false
-   cloud_init = true
-   cloud_init_storage_pool = var.iso_storage_pool
+   qemu_agent = true
 
    boot_wait = "5s"
    boot_command = [
@@ -59,14 +57,34 @@ source "proxmox-iso" "proxmox_ubuntu_20" {
          disk_size = var.vm_disk_size
          storage_pool = var.storage_pool
          storage_pool_type = "lvm"
+         cache_mode = "writeback"
    }
 } 
 
 build {
   sources = ["source.proxmox-iso.proxmox_ubuntu_20"]
   provisioner "shell" {
+    environment_vars = ["DEBIAN_FRONTEND=noninteractive"]
     inline = [
-      "cat /etc/sudoers.d/ubuntu"
+      "sudo apt update",
+      "sudo apt upgrade -y",
+      "sudo apt install -y vim curl wget",
+      "sudo sed -e 's/GRUB_CMDLINE_LINUX_DEFAULT=\".*\"/GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0\"/g' -i /etc/default/grub",
+      "sudo update-grub",
+      "sudo sed -e 's/datasource_list:.*/datasource_list: [ NoCloud ]/g' -i /etc/cloud/cloud.cfg.d/99-installer.cfg",
+      "sudo cat /etc/cloud/cloud.cfg.d/99-installer.cfg"
+    ]
+  }
+
+  post-processor "shell-local" {
+    inline = [
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --scsihw virtio-scsi-pci",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --ide2 ${var.storage_pool}:cloudinit",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --boot c --bootdisk scsi0",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --ciuser ${var.vm_user}",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --cipassword ${var.vm_pass}",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --ipconfig0 \"ip=${var.vm_ip}/24,gw=${var.vm_gateway}\"",
+      "ssh root@${var.proxmox_host} qm set ${var.vm_id} --vga std"
     ]
   }
 }

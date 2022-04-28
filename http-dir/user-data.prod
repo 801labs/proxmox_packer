@@ -34,5 +34,11 @@ autoinstall:
   storage:
     layout:
       name: lvm 
+  packages:
+    - iptables-persistent
+    - psad
+    - qemu-guest-agent
+    - libguestfs-tools
+    - cloud-init
   late-commands:
-    - echo 'ubuntu ALL=(ALL) ALL' > /target/etc/sudoers.d/chad
+    - echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/ubuntu

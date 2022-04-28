@@ -22,8 +22,8 @@ autoinstall:
     - systemctl stop ssh
   identity:
     hostname: ubuntu-template
-    username: chad
-    password: $6$rounds=4096$DsetORxe$vwytg1lkC229xjarxKHkdRv8EBFxIF6g2m0fGqIPZnVKAS4XV9WaiZnu5jITeG7o5FyXSvF8LkYTPtzBVhlmE1 
+    username: ubuntu
+    password: $6$rounds=4096$zIj5R5HIfYU$DZZFshWUoX32.Tzm3hYhVFfpCAtB52w4NlBYrqTiNwhgYWyHpeoBRLOQRJ/i.gNfR0xYK0gvjvR9Q4fO5AQpX.
   user-data:
     diable_root: false
   ssh:
@@ -34,5 +34,11 @@ autoinstall:
   storage:
     layout:
       name: lvm 
+  packages:
+    - iptables-persistent
+    - psad
+    - qemu-guest-agent
+    - libguestfs-tools
+    - cloud-init
   late-commands:
-    - echo 'ubuntu ALL=(ALL) ALL' > /target/etc/sudoers.d/chad
+    - echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/ubuntu

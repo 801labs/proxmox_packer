@@ -23,7 +23,13 @@ variable "vm_name" {
 variable "vm_ip" {
    type = string
    description = "vm ip address"
-   default = "192.168.1.254"
+   default = "192.168.40.254"
+}
+
+variable "vm_gateway" {
+   type = string
+   description = "vm gateway address"
+   default = "192.168.40.1"
 }
 
 variable "vm_user" {
@@ -42,6 +48,14 @@ variable "vm_disk_size" {
    type = string
    description = "size of vm disk"
    default = "15G"
+}
+
+variable "vm_id" {
+   default = "100"
+}
+
+variable "proxmox_host" {
+   default = "192.168.40.201"
 }
 
 variable "storage_pool" {
