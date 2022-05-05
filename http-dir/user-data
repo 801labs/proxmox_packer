@@ -23,7 +23,7 @@ autoinstall:
   identity:
     hostname: ubuntu-template
     username: ubuntu
-    password: $6$rounds=4096$axyKxTpME$zcfpiIFyi.6wiyOYz5nP8x3dsAo3fUEPiQzDzCFs3J5lvMt2qjKLxuLuoVcK/Y5xAWjfrfYpyQiY6zGA8duNr0
+    password: $6$rounds=4096$uYJasAHnuyGLAWE$gHCrd5avBSsn73.Ky6K1iYprLab8E53c6XElyzBqXObKmeYuodT.EGWkp3bbYt8cPVoyyRvqT1lcnzEycNACc.
   user-data:
     diable_root: false
   ssh:
