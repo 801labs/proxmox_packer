@@ -70,6 +70,12 @@ variable "node" {
    default = "proxtest1"
 }
 
+variable "iso_autoattend"
+   type = string
+   description = "iso unattend"
+   default = "local:iso/Autounattend.iso"
+}
+
 variable "iso_url" {
    type = string
    description = "url for iso"
